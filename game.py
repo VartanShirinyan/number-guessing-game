@@ -4,14 +4,19 @@ import random
 
 print("="*50)
 print('Добро пожаловать в игру "Угадай число"!')
+print("="*50)
 
 while True:
-    print("="*50)
-    print("Я загадал число от 1 до 100. Попробуй угадать!")
+    level = int(input('Задайте уровень сложности до 10_000. Введите число: '))
+    
     print("(Для выхода введите 'exit')")
+    
+            
+    print(f"Я загадал число от 1 до {level}, Пробуй угадать!")
+    
     print("(Заглушка: игра еще в разработке)")
 
-    secret_number = random.randint(1, 100)
+    secret_number = random.randint(1, level)
     count = 0
 
     print(f"(Отладка: загаданное число {secret_number})")
@@ -23,7 +28,7 @@ while True:
         if user_input.lower() in ('exit'):
             print(f'Игра завершена. Загаданное число было: {secret_number}')
             print("Спасибо за игру! До свидания!")
-            exit(    )
+            exit()
             
         is_number = True
         for char in user_input:
@@ -37,8 +42,8 @@ while True:
             
         user_number = int(user_input)
             
-        if user_number < 1 or user_number > 100:
-            print("Пожалуйста, введите число от 1 до 100!")
+        if user_number < 1 or user_number > level:
+            print(f"Пожалуйста, введите число от 1 до {level}!")
             continue
             
         count += 1
